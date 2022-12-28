@@ -57,7 +57,7 @@ class_55
 class_56
 class_57
 class_58
-class_59
+car
 class_60
 class_61
 class_62
