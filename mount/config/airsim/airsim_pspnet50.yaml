@@ -18,7 +18,7 @@ TRAIN:
   ignore_label: -1
   aux_weight: 0.4
   train_gpu: [0]
-  workers: 1  # data loader workers
+  workers: 0  # data loader workers
   batch_size: 4  # batch size for training
   batch_size_val: 4  # batch size for validation during training, memory and speed tradeoff
   base_lr: 0.01
@@ -54,5 +54,5 @@ TEST:
   test_gpu: [0]
   model_path: exp/airsim/pspnet50/model/train_epoch_100.pth  # evaluation model path
   save_folder: exp/airsim/pspnet50/result/epoch_100/val/ss  # results save folder
-  colors_path: data/airsim/airsim_colors.txt  # path of dataset colors
-  names_path: data/airsim/airsim_names.txt  # path of dataset category names
+  colors_path: data/airsim/airsim_colors_sorted.txt  # path of dataset colors
+  names_path: data/airsim/airsim_names_sorted.txt  # path of dataset category names
