@@ -1,6 +1,5 @@
 ########## Pull ##########
 FROM nvidia/cuda:11.6.2-cudnn8-devel-ubuntu20.04
-# FROM nvidia/cuda:10.1-cudnn8-devel-ubuntu18.04
 ########## Non-interactive ##########
 ENV DEBIAN_FRONTEND=noninteractive
 ########## Common Tools ##########
@@ -22,17 +21,6 @@ RUN apt-get update && \
 		--extra-index-url https://download.pytorch.org/whl/cu116 \
 		tensorboardX \
 		tensorboard
-# RUN apt-get update && \
-#     apt-get install -y \
-# 	    python3-pip \
-# 		libjpeg-dev \
-# 		zlib1g-dev && \
-# 	pip3 install --upgrade pip && \
-# 	pip3 install \
-# 		torch==1.4.0 \
-# 		torchvision==0.5.0 \
-# 		tensorboardX \
-# 		tensorboard
 ########## Cache Busting ##########
 ARG CACHEBUST=1
 ########## pspnet ##########
