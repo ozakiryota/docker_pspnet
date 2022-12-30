@@ -25,14 +25,11 @@ class CsvToTxt:
         for rgb, name in zip(original_colors, original_names):
             index = 0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]
             index = round(index)
-            print(name)
             new_colors[index] = rgb
             new_names[index] = name
-        with  open(self.args.save_colors_path, 'w') as colors_txt:
-            with  open(self.args.save_names_path, 'w') as names_txt:
+        with open(self.args.save_colors_path, 'w') as colors_txt:
+            with open(self.args.save_names_path, 'w') as names_txt:
                 for rgb, name in zip(new_colors, new_names):
-                    print(name)
-                    print(rgb)
                     for value in rgb:
                         colors_txt.write(str(value) + ' ')
                     colors_txt.write('\n')
@@ -40,5 +37,5 @@ class CsvToTxt:
 
 
 if __name__ == '__main__':
-    csv_to_txt = CsvToTxt()
-    csv_to_txt.convert()
+    palette_sort = PaletteSort()
+    palette_sort.convert()
