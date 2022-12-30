@@ -4,7 +4,7 @@ import os
 import numpy as np
 
 
-class CsvToTxt:
+class PaletteSort:
     def __init__(self):
         self.args = self.setArgument().parse_args()
     
