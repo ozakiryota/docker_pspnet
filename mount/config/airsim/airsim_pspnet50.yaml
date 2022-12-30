@@ -1,7 +1,7 @@
 DATA:
-  data_root: /root/dataset/airsim/center_road_south2north_1000
-  train_list: /root/dataset/airsim/center_road_south2north_1000/file_list.txt
-  val_list: /root/dataset/airsim/center_road_south2north_1000/file_list.txt
+  data_root: /root/dataset/airsim/sample_data
+  train_list: /root/dataset/airsim/sample_data/file_list_grayscaled.txt
+  val_list: /root/dataset/airsim/sample_data/file_list_grayscaled.txt
   classes: 256
 
 TRAIN:
@@ -42,7 +42,7 @@ Distributed:
   rank: 0
 
 TEST:
-  test_list: /root/dataset/airsim/center_road_south2north_1000/file_list.txt
+  test_list: /root/dataset/airsim/sample_data/file_list_grayscaled.txt
   split: val  # split in [train, val and test]
   base_size: 512  # based size for scaling
   test_h: 473
@@ -54,5 +54,5 @@ TEST:
   test_gpu: [0]
   model_path: exp/airsim/pspnet50/model/train_epoch_100.pth  # evaluation model path
   save_folder: exp/airsim/pspnet50/result/epoch_100/val/ss  # results save folder
-  colors_path: data/airsim/airsim_colors_sorted.txt  # path of dataset colors
-  names_path: data/airsim/airsim_names_sorted.txt  # path of dataset category names
+  colors_path: data/airsim/airsim_colors.txt  # path of dataset colors
+  names_path: data/airsim/airsim_names.txt  # path of dataset category names
