@@ -5,6 +5,11 @@
 ##SBATCH --gres=gpu:8
 ##SBATCH -c 80
 
+original_pwd=$(pwd)
+exec_pwd=$(cd $(dirname $0); pwd)
+
+cd $exec_pwd/..
+
 dataset='airsim'
 exp_name='pspnet50'
 exp_dir=exp/${dataset}/${exp_name}
@@ -14,7 +19,7 @@ config=config/${dataset}/${dataset}_${exp_name}.yaml
 now=$(date +"%Y%m%d_%H%M%S")
 
 mkdir -p ${model_dir} ${result_dir}
-cp tool/train.sh tool/train.py tool/test.sh tool/test.py ${config} ${exp_dir}
+cp tool/airsim_train.sh tool/train.py tool/airsim_test.sh tool/test.py ${config} ${exp_dir}
 
 export PYTHONPATH=./
 python3 -u ${exp_dir}/train.py \
@@ -24,3 +29,5 @@ python3 -u ${exp_dir}/train.py \
 python3 -u ${exp_dir}/test.py \
   --config=${config} \
   2>&1 | tee ${result_dir}/test-$now.log
+
+cd $original_pwd
