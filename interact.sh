@@ -15,8 +15,7 @@ docker run \
 	-v $(pwd)/mount/exp:/root/semseg/exp \
 	-v $(pwd)/mount/config/airsim:/root/semseg/config/airsim \
 	-v $(pwd)/mount/data/airsim:/root/semseg/data/airsim \
-	-v $(pwd)/mount/tool/airsim_train.sh:/root/semseg/tool/airsim_train.sh \
-	-v $(pwd)/mount/tool/airsim_test.sh:/root/semseg/tool/airsim_test.sh \
-	-v $(pwd)/mount/resnet50_v2.pth:/root/semseg/initmodel/resnet50_v2.pth \
 	-v $(pwd)/mount/my_tool:/root/semseg/my_tool \
+	-v $(pwd)/mount/initmodel:/root/semseg/initmodel \
+	-v $(pwd)/mount/dataset_arrangement:/root/semseg/dataset_arrangement \
 	$image:$tag
