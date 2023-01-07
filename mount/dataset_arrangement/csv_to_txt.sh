@@ -11,8 +11,9 @@ else
     target_col_list=0
 fi
 
+exec_pwd=$(cd $(dirname $0); pwd)
 
-python3 csv_to_txt.py \
+python3 $exec_pwd/csv_to_txt.py \
     --csv_path $csv_path \
     --txt_name file_list.txt \
     --target_col_list $target_col_list
