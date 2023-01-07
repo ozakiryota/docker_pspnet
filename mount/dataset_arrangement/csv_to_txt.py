@@ -25,6 +25,7 @@ class CsvToTxt:
                     for col in self.args.target_col_list:
                         txt_data.write(row[col] + ' ')
                     txt_data.write('\n')
+        print("Save:", txt_path)
 
 
 if __name__ == '__main__':
