@@ -6,9 +6,7 @@ if [ $# -eq 0 ]; then
 fi
 
 path_first_char=`echo $1 | cut -c 1`
-if [ $path_first_char == '/' ]; then
-    csv_path=$1
-elif [ $path_first_char == '~' ]; then
+if [ $path_first_char == '/' ] || [ $path_first_char == '~' ]; then
     csv_path=$1
 else
     csv_path="$(pwd)/$1"
