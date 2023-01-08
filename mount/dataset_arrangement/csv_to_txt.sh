@@ -4,7 +4,16 @@ if [ $# -eq 0 ]; then
     echo "Error: Usage: ./csv_to_txt.sh CSV_PATH (TARGET_COL)"
     exit 1
 fi
-csv_path="$(pwd)/$1"
+
+path_first_char=`echo $1 | cut -c 1`
+if [ $path_first_char == '/' ]; then
+    csv_path=$1
+elif [ $path_first_char == '~' ]; then
+    csv_path=$1
+else
+    csv_path="$(pwd)/$1"
+fi
+
 if [ $# -ne 1 ]; then
     target_col_list=${@:2}
 else
