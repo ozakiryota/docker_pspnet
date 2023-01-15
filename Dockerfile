@@ -22,9 +22,10 @@ RUN apt-get update && \
 		tensorboardX \
 		tensorboard
 ########## Cache Busting ##########
-ARG CACHEBUST=1
+ARG cachebust=1
 ########## pspnet ##########
-RUN cd ~ && \
+RUN mkdir -p /home/user && \
+	cd /home/user && \
 	git clone https://github.com/hszhao/semseg.git && \
 	apt-get update && \
 	apt-get install -y \
@@ -33,5 +34,12 @@ RUN cd ~ && \
 	pip3 install \
 		opencv-python \
 		pyyaml
+########## User ##########
+RUN apt-get update && \
+	apt-get install -y gosu
+COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 ########## Initial Position ##########
-WORKDIR /root/semseg
+WORKDIR /home/user/semseg
+CMD ["bash"]
